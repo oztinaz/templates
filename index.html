@@ -10,6 +10,26 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
   </head>
   <body>
+    <div class="sidebar-container">
+      <div class="sidebar closable">
+        <div class="sidebar-items">
+          <a href="#" class="sidebar-header">Header</a>
+          <div class="sidebar-divider"></div>
+          <a href="#" class="sidebar-item">Link 1</a>
+          <a href="#" class="sidebar-item">Link 2</a>
+          <a href="#" class="sidebar-item">Link 3</a>
+          <div class="sidebar-dropdown">
+            <a href="#" class="sidebar-dropdown-header">Dropdown</a>
+            <div class="sidebar-dropdown-menu">
+              <a href="#" class="sidebar-dropdown-item">Dropdown 1</a>
+              <a href="#" class="sidebar-dropdown-item">Dropdown 2</a>
+              <a href="#" class="sidebar-dropdown-item">Dropdown 3</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content"></div>
+    </div>
     <script type="module" src="./main.js" async defer></script>
   </body>
 </html>
