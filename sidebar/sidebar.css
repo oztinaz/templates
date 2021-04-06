@@ -1,0 +1,126 @@
+.sidebar-container {
+  display: flex;
+  height: 100vh;
+  font-size: 15px;
+}
+
+.sidebar {
+  --width: 300px;
+
+  --background-color: #1e1e1e;
+  --dropdown-item-background-color: #333333;
+  --dropdown-item-border-color: #252526;
+  --item-hover-background-color: #252526;
+  --item-active-color: #d79300;
+  --divider-color: #333333;
+  --text-color: #c1cccc;
+
+  --item-height: 50px;
+  --animation-duration: 1s;
+}
+
+.sidebar {
+  width: var(--width);
+  background-color: var(--background-color);
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.sidebar a:hover {
+  background-color: var(--item-hover-background-color);
+}
+
+.sidebar .active {
+  color: var(--item-active-color);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+
+  height: var(--item-height);
+
+  padding: 0 20px;
+}
+
+.sidebar-divider {
+  border-bottom: 2px solid var(--divider-color);
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+
+  height: var(--item-height);
+
+  padding: 0 20px;
+}
+
+.sidebar-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: var(--item-height);
+
+  padding: 0 20px;
+}
+
+.sidebar-dropdown-menu {
+  display: none;
+}
+
+.sidebar-dropdown-item {
+  display: flex;
+  align-items: center;
+
+  background-color: var(--dropdown-item-background-color);
+  border-left: 5px solid var(--dropdown-item-border-color);
+
+  height: var(--item-height);
+
+  padding: 0 20px;
+}
+
+.sidebar-toggle {
+  position: absolute;
+  font-size: 20px;
+  padding: 13px 20px;
+  color: var(--background-color);
+}
+
+@keyframes sidebar-opening-animation {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: var(--width);
+  }
+}
+
+@keyframes sidebar-closing-animation {
+  0% {
+    width: var(--width);
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+.sidebar.open {
+  animation: sidebar-opening-animation var(--animation-duration);
+}
+
+.sidebar.close {
+  animation: sidebar-closing-animation var(--animation-duration);
+}
