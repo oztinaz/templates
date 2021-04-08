@@ -1,3 +1,4 @@
-import { initializeSidebar } from './sidebar/sidebar.js'
+import Sidebar from './sidebar/sidebar.js'
 
-initializeSidebar()
+let sidebar = new Sidebar()
+sidebar.initialize()

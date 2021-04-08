@@ -1,37 +1,40 @@
-export function setDropdowns(dropdowns) {
-    for (let i = 0; i < dropdowns.length; i++) {
-        let header = getDropdownHeader(dropdowns[i])
-        let menu = getDropdownMenu(dropdowns[i])
+class Dropdown {
+  
+    constructor(element) {
+        this.header = element.getElementsByClassName('sidebar-dropdown-header')[0]
+        this.initializeIcon()
+        this.menu = element.getElementsByClassName('sidebar-dropdown-menu')[0]
+    }
 
-        setHeaderMenuDisplayEvent(header, menu)
+    setHeaderMenuDisplayEvent() {
+        this.header.addEventListener('click', () => {
+            if (this.menu.style.display === '' || this.menu.style.display === 'none') {
+                this.icon.className = this.getOpenedDropdownIconClass()
+                this.menu.style.display = 'block'
+            } else {
+                this.icon.className = this.getClosedDropdownIconClass()
+                this.menu.style.display = 'none'
+            }
+        })
+    }
+
+    initializeIcon() {
+        this.icon = this.createIcon()
+        this.icon.className = this.getClosedDropdownIconClass()
+        this.header.append(this.icon)
+    }
+
+    createIcon() {
+        return document.createElement('i')
+    }
+
+    getClosedDropdownIconClass() {
+        return 'fas fa-caret-left'
+    }
+
+    getOpenedDropdownIconClass() {
+        return 'fas fa-caret-down'
     }
 }
 
-export function getDropdowns(items) {
-    return items.getElementsByClassName('sidebar-dropdown')
-}
-  
-  
-function setHeaderMenuDisplayEvent(header, menu) {
-    let icon = document.createElement('i')
-    icon.className = 'fas fa-caret-left'
-    header.append(icon)
-
-    header.addEventListener('click', () => {
-        if (menu.style.display === '' || menu.style.display === 'none') {
-            icon.className = 'fas fa-caret-down'
-            menu.style.display = 'block'
-        } else {
-            icon.className = 'fas fa-caret-left'
-            menu.style.display = 'none'
-        }
-    }, menu)
-}
-
-function getDropdownHeader(dropdown) {
-    return dropdown.getElementsByClassName('sidebar-dropdown-header')[0]
-}
-
-function getDropdownMenu(dropdown) {
-    return dropdown.getElementsByClassName('sidebar-dropdown-menu')[0]
-}
+export default Dropdown
